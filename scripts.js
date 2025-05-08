@@ -1,18 +1,8 @@
 function inscribirse() {
-  alert("¡Gracias por tu interés! Pronto te contactaremos con más detalles.");
+  const modal = document.getElementById("modal-exito");
+  if (modal) modal.style.display = "flex";
 }
 
-function toggleMenu() {
-  const navLinks = document.getElementById("nav-links");
-  navLinks.classList.toggle("show");
-}
-
-const links = document.querySelectorAll('.nav-links a');
-links.forEach(link => {
-  link.addEventListener('click', () => {
-    document.getElementById('nav-links').classList.remove('show');
-  });
-});
 
 // Posicionar dinámicamente los cuadros de info
 document.querySelectorAll('.language-card').forEach(card => {
@@ -68,3 +58,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+

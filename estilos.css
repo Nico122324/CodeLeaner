@@ -25,18 +25,15 @@ main {
     z-index: 1000;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 .logo {
     font-size: 24px;
     font-weight: bold;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    padding: 0;
-    margin: 0;
-    align-items: center;
 }
 
 .nav-links li a {
@@ -65,7 +62,6 @@ main {
 }
 
 .menu-toggle {
-    display: none;
     background: none;
     border: none;
     font-size: 28px;
@@ -75,7 +71,6 @@ main {
 
 @media (max-width: 768px) {
     .nav-links {
-        display: none;
         flex-direction: column;
         background-color: #1e1e1e;
         position: absolute;
@@ -280,20 +275,6 @@ button:hover {
     transform: scale(1.2);
 }
 
-/* Responsividad en móviles */
-@media (max-width: 768px) {
-    .info-container {
-        flex-direction: column; /* Cambia la dirección de las tarjetas a vertical en pantallas pequeñas */
-        padding: 0 10px;
-    }
-
-    .info-card {
-        width: 100%; /* Las tarjetas ocuparán el 100% de la pantalla en dispositivos pequeños */
-        margin-bottom: 20px; /* Espaciado entre las tarjetas */
-        height: auto; /* Ajusta la altura para que no quede fija */
-    }
-}
-
 footer {
     text-align: center;
     padding: 8px 0;
@@ -385,13 +366,7 @@ footer {
       transform: translateY(0);
     }
   }
-  
-  /* Responsivo */
-  @media (max-width: 500px) {
-    .inscripcion-form-container {
-      padding: 30px 20px;
-    }
-  }
+
   
   /* Estilo del contenedor del modal */
 .inscripcion-modal {
@@ -450,4 +425,224 @@ footer {
   .inscripcion-modal-content {
     animation: fadeInModal 0.5s ease-out;
   }
+
+/* Estilos para la página de cursos */
+.hero-cursos {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #e0f7fa;
+    margin-bottom: 40px;
+  }
   
+  .hero-cursos h1 {
+    font-size: 2.5rem;
+    color: #00796b;
+    margin-bottom: 15px;
+  }
+  
+  .hero-cursos p {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .cursos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .curso-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 25px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .curso-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .curso-logo {
+    width: 100%;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 20px;
+  }
+  
+  .curso-card h3 {
+    color: #00796b;
+    margin-top: 0;
+    font-size: 1.5rem;
+  }
+  
+  .curso-info p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .curso-detalles {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  
+  .curso-detalles li {
+    margin-bottom: 8px;
+    color: #666;
+  }
+  
+  .curso-detalles i {
+    color: #00bfa5;
+    width: 20px;
+    text-align: center;
+    margin-right: 8px;
+  }
+  
+  .curso-precio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+  }
+  
+  .curso-precio span {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #00796b;
+  }
+  
+  .add-to-cart {
+    background-color: #00bfa5;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .add-to-cart:hover {
+    background-color: #00796b;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+.navbar {
+    background-color: #1e1e1e;
+    color: white;
+    display: flex;
+    justify-content: space-between; /* Logo a la izquierda, menú a la derecha */
+    align-items: center; /* Centrado vertical */
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex; /* Esto hace que los elementos se alineen horizontalmente */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px; /* Espacio entre elementos del menú */
+    align-items: center; /* Centrado vertical de los elementos */
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-links li a:hover {
+    color: #00bfa5;
+}
+
+.nav-button {
+    background-color: #00bfa5;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+    background-color: #00796b;
+}
+
+/* Eliminamos el menú hamburguesa ya que no es necesario */
+.menu-toggle {
+    display: none;
+}
+
+/* Eliminamos la media query para móviles */
+@media (max-width: 768px) {
+    /* Eliminado todo el contenido */
+}
+
+/* El resto de tu CSS permanece igual */
+.hero {
+    padding: 50px;
+    text-align: center;
+    background-color: #e0f7fa;
+}
+
+button {
+    padding: 12px 20px;
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #004d40;
+}
+
+.languages {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin: 50px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
