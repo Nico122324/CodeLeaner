@@ -102,12 +102,35 @@
         </div>
       </div>
     </section>
-  </main>
 
-  <footer>
-    <p>&copy; 2025 CodeLearner. Todos los derechos reservados.</p>
-  </footer>
 
-  <script src="scripts-cursos.js"></script>
+  <script>
+    // Función global para añadir curso al carrito
+    function agregarCursoAlCarrito(nombre, precio) {
+      const contenedor = document.getElementById('lista-cursos');
+      const cursoElemento = document.createElement('div');
+      cursoElemento.classList.add('curso-en-carrito');
+      cursoElemento.innerHTML = `
+        <h3>${nombre}</h3>
+        <p>Precio: $${precio}</p>
+        <button class="btn-eliminar">Eliminar</button>
+      `;
+
+      cursoElemento.querySelector('.btn-eliminar').addEventListener('click', function () {
+        cursoElemento.remove();
+      });
+
+      contenedor.appendChild(cursoElemento);
+    }
+
+    // Asignar eventos a los botones de "Añadir al carrito"
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', function () {
+        const nombreCurso = this.dataset.curso;
+        const precioCurso = this.dataset.precio;
+        agregarCursoAlCarrito(nombreCurso, precioCurso);
+      });
+    });
+  </script>
 </body>
 </html>
